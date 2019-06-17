@@ -1,4 +1,4 @@
-<?php 
+ <?php 
 
 class Usuario{		
 	private $idusuario;
@@ -34,7 +34,9 @@ class Usuario{
 	public function loadById($id){
 		$sql = new Sql();
 
-		$results = $sql->select("SELECT * FROM tb_ususarios WHERE idusuario = :ID", array(":ID",$id));
+		$results = $sql->select("SELECT * FROM tb_ususarios WHERE idusuario=:ID", array(":ID",$id));
+		//echo('id='.$id);
+		//print_r($results);
 
 		if (count($results)>0){
 
@@ -56,7 +58,7 @@ class Usuario{
  			"idusuario"=>$this->getIdusuario(),
 			"deslogin"=>$this->getDeslogin(),
 			"dessenha"=>$this->getDessenha(),
-			"dtcadastro"=>$this->getDtcadastro()->format("d/m/y")
+			"dtcadastro"=>$this->getDtcadastro()->format("d/m/Y")
 
 		));
 	}
